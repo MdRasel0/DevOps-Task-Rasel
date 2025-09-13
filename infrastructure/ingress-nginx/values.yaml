@@ -1,0 +1,14 @@
+controller:
+  config:
+    enable-lua: "true"
+    lua-shared-dicts: "my_cache:10m"
+
+  extraVolumes:
+    - name: lua-scripts
+      configMap:
+        name: ingress-nginx-lua-plugins
+
+  extraVolumeMounts:
+    - name: lua-scripts
+      mountPath: /etc/nginx/lua
+      readOnly: true

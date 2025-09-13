@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ingress-nginx-lua-plugins
+  namespace: ingress-nginx
+data:
+  my_plugin.lua: |
+    function envoy_on_response(response_handle)
+      response_handle:headers():add("X-Custom-Plugin", "Injected by Lua")
+    end
