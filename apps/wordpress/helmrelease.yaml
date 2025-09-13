@@ -14,13 +14,15 @@ spec:
         name: bitnami
         namespace: flux-system
   values:
-    wordpressUsername: admin
-    wordpressPassword: adminpass
+    mariadb:
+      enabled: false   # <---- disable internal MariaDB
     externalDatabase:
       host: mysql.wordpress.svc.cluster.local
       user: wpuser
       password: wppass
       database: wordpress
+    wordpressUsername: admin
+    wordpressPassword: adminpass
     ingress:
       enabled: true
       hostname: app.local

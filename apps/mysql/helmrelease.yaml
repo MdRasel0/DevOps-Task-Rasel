@@ -16,5 +16,5 @@ spec:
   values:
     auth:
       existingSecret: mysql-secret
-      username: wpuser
       database: wordpress
+      username: wpuser
