@@ -15,7 +15,7 @@ spec:
         namespace: flux-system
   values:
     mariadb:
-      enabled: false   # <---- disable internal MariaDB
+      enabled: false
     externalDatabase:
       host: mysql.wordpress.svc.cluster.local
       user: wpuser
