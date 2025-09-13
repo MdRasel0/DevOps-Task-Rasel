@@ -1,28 +1,13 @@
-apiVersion: helm.toolkit.fluxcd.io/v2
-kind: HelmRelease
-metadata:
-  name: wordpress
-  namespace: wordpress
-spec:
-  interval: 5m
-  chart:
-    spec:
-      chart: wordpress
-      version: 19.0.0
-      sourceRef:
-        kind: HelmRepository
-        name: bitnami
-        namespace: flux-system
-  values:
-    mariadb:
-      enabled: false
-    externalDatabase:
-      host: mysql.wordpress.svc.cluster.local
-      user: wpuser
-      password: wppass
-      database: wordpress
-    wordpressUsername: admin
-    wordpressPassword: adminpass
-    ingress:
-      enabled: true
-      hostname: app.local
+values:
+  mariadb:
+    enabled: false
+  externalDatabase:
+    host: mysql.wordpress.svc.cluster.local
+    user: wpuser
+    password: wppass
+    database: wordpress
+  wordpressUsername: admin
+  wordpressPassword: adminpass
+  ingress:
+    enabled: true
+    hostname: app.local
